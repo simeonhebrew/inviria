@@ -2,10 +2,10 @@
 
 ## A lightweight pipeline to profile the human gut virome
 
-Inviria allows you to rapidly quantify and profile enriched human gut viral samples.
+Inviria is a pipeline allows you to rapidly and efficienty quantify and profile the human gut virome from enriched Virus-like Particle (VLP) sequencing data.
+It leverages [viromeQC](https://github.com/SegataLab/viromeqc.git) to estimate viral enrichment, [sylph](https://github.com/bluenote-1577/sylph.git) for taxonomic profiling and the Unified Human Gut Virome [UHGV](https://github.com/snayfach/UHGV.git), a comprehensive resource of viruses that have been clustered 
+independent human microbiome studies.
 
-
-### Quick Start!
 
 ### Installation
 
@@ -14,7 +14,7 @@ a) To install inviria, first clone the git repository to your preferred director
 	git clone https://github.com/simeonhebrew/inviria.git
 	cd inviria
 
-b) Using the configuration file provided, create a new conda environment:
+b) Using the configuration file provided, create a new [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html) environment:
 
 	conda env create -n inviria --file inviria.yml
 
@@ -52,4 +52,12 @@ Parameters
 	  -h, --help          list all arguments
 
 ### Expected Output
-a) 
+a) `ViromeQC_Viral_Enrichment_Score.png` : a bar graph plot showing the viral enrichment scores of all your samples
+b) `viral_host_lifestyle_abund_inviria.tsv` : a table in .tsv formart that summarizes the abundance of all mapped UHGV vOTUs.
+
+
+
+
+**Upcoming Features
+- Allowing for long read sequencing read profiling.
+- Viral gene catalogue abundance profiling.
