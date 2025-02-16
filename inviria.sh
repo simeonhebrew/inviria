@@ -8,6 +8,9 @@ usage() {
     exit 1
 }
 
+
+run_viromeqc=false
+
 # Parse command-line arguments
 while [[ $# -gt 0 ]]; do
     case "$1" in
@@ -27,7 +30,12 @@ while [[ $# -gt 0 ]]; do
             OUTPUT="$2"
             shift 2
             ;;
-	*)
+        -v)
+            # If -v is specified, set the flag to true
+            run_viromeqc=true
+            shift
+            ;;
+        *)
             usage
             ;;
     esac
@@ -39,45 +47,53 @@ if [ -z "$R1" ] || [ -z "$R2" ] || [ -z "$THREADS" ]; then
 fi
 
 
-python3 viromeqc/viromeQC.py -i $R1 $R2 -o "$(basename $R1 .fastq).txt" --bowtie2_threads 32 --diamond_threads 32
+if $run_viromeqc; then
+    
+    python3 viromeqc/viromeQC.py -i "$R1" "$R2" -o "$(basename "$R1" .fastq).txt" --bowtie2_threads "$THREADS" --diamond_threads "$THREADS"
+    
+    
+    mkdir -p vqc
+    mv *.txt vqc/
+    
+    
+    DIR="vqc"
+    OUTPUT_FILE="merged_vqc.tsv"
 
-mkdir -p vqc
+    
+    > "$OUTPUT_FILE"
 
-mv *txt vqc/
+    
+    RF=$(find "$DIR" -type f | shuf -n 1)
 
+    
+    if [ -n "$RF" ]; then
+        FIRST_LINE=$(head -n 1 "$RF")
+        echo -e "$FIRST_LINE" > "$OUTPUT_FILE"
+    else
+        echo "No virome QC files generated"
+        exit 1
+    fi
 
-DIR="vqc"
-OUTPUT_FILE="merged_vqc.tsv"
-
-> "merged_vqc.tsv"
-
-RF=$(find "$DIR" -type f | shuf -n 1)
-
-if [ -n "$RF" ]; then
-    FIRST_LINE=$(head -n 1 "$RF")
-    echo -e "$FIRST_LINE" > "$OUTPUT_FILE"
-else
-    echo "No virome qc files generated"
-    exit 1
+    
+    for FILE in "$DIR"/*; do
+        if [ -f "$FILE" ]; then
+            SECOND_LINE=$(sed -n '2p' "$FILE")
+            echo -e "$SECOND_LINE" >> "$OUTPUT_FILE"
+        fi
+    done
+    
+    
+    python3 plot_merged_file.py
 fi
 
-for FILE in "$DIR"/*; do
-    if [ -f "$FILE" ]; then
-        SECOND_LINE=$(sed -n '2p' "$FILE")
-        echo -e "$SECOND_LINE" >> "$OUTPUT_FILE"
-    fi
-done
-
-
-python3 plot_merged_file.py
 
 mkdir -p temporary
 
-sylph profile imgvr_c200_v0.3.0.syldb -1 $R1 -2 $R2 -t 32 > temporary/"$(basename $R1 .fastq)_sylph.tsv"
-sylph-tax taxprof temporary/*tsv -t IMGVR_4.1
+sylph profile votus_full.syldb -1 "$R1" -2 "$R2" -t "$THREADS" > temporary/"$(basename "$R1" | sed 's/R1.*//')_sylph.tsv"
+sylph-tax taxprof temporary/*tsv -t output_three.tsv
 mv *.sylphmpa temporary/
-sylph-tax merge temporary/*.sylphmpa --column relative_abundance -o merged_abundance.tsv
+sylph-tax merge temporary/*.sylphmpa --column relative_abundance -o merged_abundance_uhgv_host.tsv
 
-python3 sylphylo.py
+python3 sylph_uhgv_host.py
 
-echo "inviria finished successfully, output files present in otu_tax table directory"
+echo "inviria finished successfully, output files present in specified output directory"
