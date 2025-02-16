@@ -26,10 +26,30 @@ c) Activate the conda environment
 
 d)Download the required database
 
-`curl https://zenodo.org/records/14879780/files/votus_full.syldb?download=1 --output votus_full.syldb
+`curl https://zenodo.org/records/14879780/files/votus_full.syldb?download=1 --output votus_full.syldb`
 
 
 
 ### Usage
 
-./inviria.sh -R1 -R2
+To run the pipeline, use the the following command while still in the repository directory
+
+`./inviria.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>`
+
+Input sequencing reads can be in `.fastq` or `.fastq.gz` formart.
+
+
+Parameters
+
+	REQUIRED ARGUMENTS
+	  -R1, --Read1        Forward read in fastq or fastq.gz format
+	  -R2, --Read2        Reverse read in fastq or fastq.gz format
+	  -t, --threads       Specify number of threads for parallel processing
+	OPTIONAL ARGUMENTS
+	  -o, --output        Output directory
+	  -v                  Run ViromeQC for viral enchrichment scores
+	PIPELINE USAGE
+	  -h, --help          list all arguments
+
+### Expected Output
+a) 
