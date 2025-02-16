@@ -5,9 +5,17 @@
 
 # Displaying usage arguments
 usage() {
+    echo "Inrivia is a lightweight pipeline for profiling the human gut virome (v0.0.1)"
     echo "Usage: $0 -R1 <forward_read> -R2 <reverse_read> -t <threads> -o <output>"
+    echo "REQUIRED ARGUMENTS"
     echo "  -R1, --Read1        Forward read in fastq or fastq.gz format"
     echo "  -R2, --Read2        Reverse read in fastq or fastq.gz format"
+    echo "  -t, --threads       Specify number of threads for parallel processing"
+    echo "OPTIONAL ARGUMENTS"
+    echo "  -o, --output        Output directory"
+    echo "  -v                  Run ViromeQC for viral enchrichment scores"
+    echo "PIPELINE USAGE"
+    echo "  -h, --help          list all arguments"
     exit 1
 }
 
@@ -38,6 +46,9 @@ while [[ $# -gt 0 ]]; do
             run_viromeqc=true
             shift
             ;;
+        -h|help)
+	    usage
+            ;;
         *)
             usage
             ;;
@@ -52,7 +63,7 @@ fi
 #Run viromeqc when -v is specified
 if $run_viromeqc; then
     
-    python3 viromeqc/viromeQC.py -i "$R1" "$R2" -o "$(basename "$R1" .fastq).txt" --bowtie2_threads "$THREADS" --diamond_threads "$THREADS"
+    python3 viromeqc/viromeQC.py -i "$R1" "$R2" -o "$(basename "$R1" | sed 's/R1.*//').txt" --bowtie2_threads "$THREADS" --diamond_threads "$THREADS"
     
     
     mkdir -p vqc
