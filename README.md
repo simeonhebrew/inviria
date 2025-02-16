@@ -3,9 +3,9 @@
 ## A lightweight pipeline to profile the human gut virome
 
 
-###Quick Start!
+### Quick Start!
 
-###Installation
+### Installation
 
 To install inviria, first clone the git repository to your preferred directory
 
