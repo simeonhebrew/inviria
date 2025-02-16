@@ -1,6 +1,9 @@
 #!/bin/bash
 
-# Function to display usage/help message
+#Author : Simeon Hebrew
+
+
+# Displaying usage arguments
 usage() {
     echo "Usage: $0 -R1 <forward_read> -R2 <reverse_read> -t <threads> -o <output>"
     echo "  -R1, --Read1        Forward read in fastq or fastq.gz format"
@@ -11,7 +14,7 @@ usage() {
 
 run_viromeqc=false
 
-# Parse command-line arguments
+
 while [[ $# -gt 0 ]]; do
     case "$1" in
         -R1|--R1)
@@ -31,7 +34,7 @@ while [[ $# -gt 0 ]]; do
             shift 2
             ;;
         -v)
-            # If -v is specified, set the flag to true
+            
             run_viromeqc=true
             shift
             ;;
@@ -41,12 +44,12 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Check if required arguments are provided
+# Are all required arguments provided?
 if [ -z "$R1" ] || [ -z "$R2" ] || [ -z "$THREADS" ]; then
     usage
 fi
 
-
+#Run viromeqc when -v is specified
 if $run_viromeqc; then
     
     python3 viromeqc/viromeQC.py -i "$R1" "$R2" -o "$(basename "$R1" .fastq).txt" --bowtie2_threads "$THREADS" --diamond_threads "$THREADS"
@@ -87,6 +90,7 @@ if $run_viromeqc; then
 fi
 
 
+#Running sylph taxonomic classifier against the UHGV database
 mkdir -p temporary
 
 sylph profile votus_full.syldb -1 "$R1" -2 "$R2" -t "$THREADS" > temporary/"$(basename "$R1" | sed 's/R1.*//')_sylph.tsv"
@@ -96,4 +100,4 @@ sylph-tax merge temporary/*.sylphmpa --column relative_abundance -o merged_abund
 
 python3 sylph_uhgv_host.py
 
-echo "inviria finished successfully, output files present in specified output directory"
+echo "Inviria finished successfully"
