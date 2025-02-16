@@ -3,7 +3,7 @@
 ## A lightweight pipeline to profile the human gut virome
 
 Inviria is a pipeline allows you to rapidly and efficienty quantify and profile the human gut virome from enriched Virus-like Particle (VLP) sequencing data.
-It leverages [viromeQC](https://github.com/SegataLab/viromeqc.git) to estimate viral enrichment, [sylph](https://github.com/bluenote-1577/sylph.git) for taxonomic profiling and the Unified Human Gut Virome [UHGV](https://github.com/snayfach/UHGV.git), a comprehensive resource of viruses that have been clustered 
+It leverages [viromeQC](https://github.com/SegataLab/viromeqc.git) to estimate viral enrichment, [sylph](https://github.com/bluenote-1577/sylph.git) for taxonomic profiling and the Unified Human Gut Virome [UHGV](https://github.com/snayfach/UHGV.git), a comprehensive resource of viruses that have been clustered from 
 independent human microbiome studies.
 
 
@@ -24,7 +24,7 @@ c) Activate the conda environment
 	conda activate inviria
 
 
-d)Download the required database
+d) Download the reference database
 
 	curl https://zenodo.org/records/14879780/files/votus_full.syldb?download=1 --output votus_full.syldb
 
@@ -32,7 +32,7 @@ d)Download the required database
 
 ### Usage
 
-To run the pipeline, use the the following command while still in the repository directory
+To run the pipeline, use the following command while still in the repository directory
 
 `./inviria.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>`
 
