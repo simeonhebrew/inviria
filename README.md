@@ -26,7 +26,7 @@ c) Activate the conda environment
 
 d)Download the required database
 
-`curl https://zenodo.org/records/14879780/files/votus_full.syldb?download=1 --output votus_full.syldb`
+	curl https://zenodo.org/records/14879780/files/votus_full.syldb?download=1 --output votus_full.syldb
 
 
 
@@ -52,12 +52,13 @@ Parameters
 	  -h, --help          list all arguments
 
 ### Expected Output
-a) `ViromeQC_Viral_Enrichment_Score.png` : a bar graph plot showing the viral enrichment scores of all your samples
+a) `ViromeQC_Viral_Enrichment_Score.png` : a bar graph plot showing the viral enrichment scores of all your samples.
+
 b) `viral_host_lifestyle_abund_inviria.tsv` : a table in .tsv formart that summarizes the abundance of all mapped UHGV vOTUs.
 
 
 
 
-**Upcoming Features
+**Upcoming Features**
 - Allowing for long read sequencing read profiling.
 - Viral gene catalogue abundance profiling.
