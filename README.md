@@ -61,4 +61,4 @@ b) `viral_host_lifestyle_abund_inviria.tsv` : a table in .tsv formart that summa
 
 **Upcoming Features**
 - Allowing for long read sequencing read profiling.
-- Viral gene catalogue abundance profiling.
+- Viral orthologs abundance profiling.
