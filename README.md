@@ -26,7 +26,7 @@ c) Activate the conda environment
 
 d) Download the reference database
 
-	curl https://zenodo.org/records/14879780/files/votus_full.syldb?download=1 --output votus_full.syldb
+	curl https://zenodo.org/records/14937019/files/votus_full_100.syldb\?download\=1 --output votus_full_100.syldb
 
 
 
