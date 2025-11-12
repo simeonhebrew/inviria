@@ -1,10 +1,9 @@
 # Inviria
 
-## A lightweight pipeline to profile the human gut virome
+## A lightweight pipeline to profile the human virome
 
-Inviria is a pipeline allows you to rapidly and efficienty quantify and profile the human gut virome from enriched Virus-like Particle (VLP) sequencing data.
-It leverages [viromeQC](https://github.com/SegataLab/viromeqc.git) to estimate viral enrichment, [sylph](https://github.com/bluenote-1577/sylph.git) for taxonomic profiling and the Unified Human Gut Virome [UHGV](https://github.com/snayfach/UHGV.git), a comprehensive resource of viruses that have been clustered from 
-independent human microbiome studies.
+Inviria is a pipeline allows you to rapidly and efficienty quantify and profile the human virome from both enriched Virus-like Particle (VLP) and bulk metagenomics sequencing data.
+It leverages [viromeQC](https://github.com/SegataLab/viromeqc.git) to estimate viral enrichment and [sylph](https://github.com/bluenote-1577/sylph.git) for viral and host taxonomic profiling against the Unified Human Gut Virome [UHGV](https://github.com/snayfach/UHGV.git) for human gut virome profiling, the Human Oral Virome Database [HOVD](https://github.com/willmaxu/Human-oral-virome-database?tab=readme-ov-file) for human oral virome profiling and the Human Vaginal Microbiome Genome Collection [VMGC](https://github.com/RChGO/VMGC) for human vaginal virome profiling.
 
 
 ### Installation
@@ -60,5 +59,6 @@ b) `viral_host_lifestyle_abund_inviria.tsv` : a table in .tsv formart that summa
 
 
 **Upcoming Features**
-- Allowing for long read sequencing read profiling.
-- Viral orthologs abundance profiling.
+- Integrating a skin virome database.
+- Prediction of integrated prophages from sequencing reads.
+- Viral protein abundance profiling
