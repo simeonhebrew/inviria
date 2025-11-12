@@ -33,7 +33,7 @@ d) Download the reference database
 
 To run the pipeline, use the following command while still in the repository directory
 
-`./inviria.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>`
+`./inviria_pe_se.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>`
 
 Input sequencing reads can be in `.fastq` or `.fastq.gz` formart.
 
