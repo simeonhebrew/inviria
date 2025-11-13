@@ -31,9 +31,19 @@ d) Download the reference database
 
 ### Usage
 
-To run the pipeline, use the following command while still in the repository directory
+To run the pipeline, use the following commands while still in the repository directory
 
-`./inviria_pe_se.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>`
+To profile the human gut virome:
+
+`./inviria_gut_profile.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>`
+
+To profile the human oral virome:
+
+`./inviria_oral_profile.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>`
+
+To profile the human vaginal virome:
+
+`./inviria_vaginal_profile.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>`
 
 Input sequencing reads can be in `.fastq` or `.fastq.gz` formart.
 
