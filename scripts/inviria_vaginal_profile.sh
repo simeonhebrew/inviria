@@ -75,7 +75,7 @@ if $run_viromeqc; then
     mv *.txt ../results/vqc/
     
     DIR="vqc"
-    OUTPUT_FILE="merged_vqc.tsv"
+    OUTPUT_FILE="viromeqc_results.tsv"
     
     > "$OUTPUT_FILE"
     
