@@ -35,15 +35,16 @@ To run the pipeline, use the following commands while still in the repository di
 
 To profile the human gut virome:
 
-`./inviria_gut_profile.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>`
+	./inviria_gut_profile.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>
 
 To profile the human oral virome:
 
-`./inviria_oral_profile.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>`
+	./inviria_oral_profile.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>
 
 To profile the human vaginal virome:
 
-`./inviria_vaginal_profile.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>`
+	./inviria_vaginal_profile.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>
+
 
 Input sequencing reads can be in `.fastq` or `.fastq.gz` formart.
 
@@ -63,7 +64,7 @@ Parameters
 ### Expected Output
 a) `ViromeQC_Viral_Enrichment_Score.png` : a bar graph plot showing the viral enrichment scores of all your samples.
 
-b) `viral_host_lifestyle_abund_inviria.tsv` : a table in .tsv formart that summarizes the abundance of all mapped UHGV vOTUs.
+b) `merged_output_(uhgv/hovd/vgmc).tsv` : a table in .tsv formart that summarizes the abundance of all mapped UHGV/HOVD/VGMC vOTUs.
 
 
 
