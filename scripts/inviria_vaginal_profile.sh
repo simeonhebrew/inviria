@@ -71,8 +71,8 @@ if $run_viromeqc; then
         python3 viromeqc/viromeQC.py -i "$R1" "$R2" -o "$(basename "$R1" | sed 's/R1.*//').txt" --bowtie2_threads "$THREADS" --diamond_threads "$THREADS"
     fi
     
-    mkdir -p vqc
-    mv *.txt vqc/
+    mkdir -p ../results/vqc
+    mv *.txt ../results/vqc/
     
     DIR="vqc"
     OUTPUT_FILE="merged_vqc.tsv"
@@ -100,7 +100,7 @@ if $run_viromeqc; then
 fi
 
 #Running sylph taxonomic classifier against the UHGV database
-mkdir -p temporary
+mkdir -p ../results/temporary
 
 # Use a for loop to handle both paired-end and single-end reads
 if [ -n "$FILE" ]; then
@@ -111,15 +111,15 @@ fi
 
 for FILE in "${FILES[@]}"; do
     if [ -n "$FILE" ]; then
-        sylph profile -c 50 --min-number-kmers 10 --min-count-correct 1 --min-spacing 10 VMGC_virus_vOTU_200.syldb "$FILE" -t "$THREADS" > temporary/"$(basename "$FILE" | sed 's/.*//')_sylph.tsv"
+        sylph profile -c 50 --min-number-kmers 10 --min-count-correct 1 --min-spacing 10 ../database/VMGC_virus_vOTU_200.syldb "$FILE" -t "$THREADS" > ../results/temporary/"$(basename "$FILE" | sed 's/.*//')_sylph.tsv"
     else
-        sylph profile -c 50 --min-number-kmers 10 --min-count-correct 1 --min-spacing 10 VMGC_virus_vOTU_200.syldb -1 "$R1" -2 "$R2" -t "$THREADS" > temporary/"$(basename "$R1" | sed 's/R1.*//')_sylph.tsv"
+        sylph profile -c 50 --min-number-kmers 10 --min-count-correct 1 --min-spacing 10 ../database/VMGC_virus_vOTU_200.syldb -1 "$R1" -2 "$R2" -t "$THREADS" > ../results/temporary/"$(basename "$R1" | sed 's/R1.*//')_sylph.tsv"
     fi
 done
 
-sylph-tax taxprof temporary/*tsv -t vgmc_taxonomy_file.tsv
-mv *.sylphmpa temporary/
-sylph-tax merge temporary/*.sylphmpa --column relative_abundance -o merged_abundance_vgmc_host.tsv
+sylph-tax taxprof ../results/temporary/*tsv -t ../taxonomy/vgmc_taxonomy_file.tsv
+mv *.sylphmpa ../results/temporary/
+sylph-tax merge ../results/temporary/*.sylphmpa --column relative_abundance -o ../results/merged_abundance_vgmc_host.tsv
 
 #python3 sylph_uhgv_host.py
 
