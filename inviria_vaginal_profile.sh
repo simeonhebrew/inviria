@@ -119,8 +119,8 @@ done
 
 sylph-tax taxprof temporary/*tsv -t vgmc_taxonomy_file.tsv
 mv *.sylphmpa temporary/
-sylph-tax merge temporary/*.sylphmpa --column relative_abundance -o merged_abundance_uhgv_host.tsv
+sylph-tax merge temporary/*.sylphmpa --column relative_abundance -o merged_abundance_vgmc_host.tsv
 
-python3 sylph_uhgv_host.py
+#python3 sylph_uhgv_host.py
 
 echo "Inviria finished successfully"
