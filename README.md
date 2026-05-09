@@ -30,7 +30,7 @@ Vaginal virome profiling is performed against 4,263 vOTUs from the Human Vaginal
 For the IHGVD, taxonomic annotation and host prediction were performed against the [UHGV classifier](https://github.com/snayfach/UHGV-classifier) which is sensitive for viral genomes from the human gut. Taxonomic annotation for HOVD, SVD and VMGC vOTUs was performed using [geNomad](https://github.com/apcamargo/genomad) (Msl19 ICTV taxonomy release) and microbial host prediction using [iPHOP](https://bitbucket.org/srouxjgi/iphop/src/main/) (June 2025 database version). Viral lifestyle for all vOTUs was predicted using [PHATYP](https://github.com/KennthShang/PhaTYP).
 
 
-<br/><br/>
+
 
 ### Installing Inviria
 
@@ -49,11 +49,13 @@ c) Activate the conda environment
 	conda activate inviria
 
 
-d) Download the reference database
+d) Download the viral catalogues and move them into the `databases` directory.
 
-	curl https://zenodo.org/records/14937019/files/votus_full_100.syldb\?download\=1 --output votus_full_100.syldb
+	curl https://zenodo.org/records/20097004/files/inviria_exp_gut_final_mq_hq_c_100.syldb?download=1 --output inviria_exp_gut_final_mq_hq_c_100.syldb
+	curl https://zenodo.org/records/20097004/files/HOVD-geneseqences_100.syldb?download=1 --output HOVD-geneseqences_100.syldb
+	curl https://zenodo.org/records/20097004/files/skin_virus_rep_100.syldb?download=1 --output skin_virus_rep_100.syldb
+	curl https://zenodo.org/records/20097004/files/VMGC_virus_vOTU_100.syldb?download=1 --output VMGC_virus_vOTU_100.syldb
 
-<br/><br/>
 
 ### Usage
 
@@ -70,7 +72,7 @@ To profile the virome of single_ended/long-read metagenomic reads:
 
 Input sequencing reads can be in `.fastq` or `.fastq.gz` format.
 
-<br/><br/>
+
 
 #### Parameters
 
