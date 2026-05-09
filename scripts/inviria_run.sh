@@ -109,9 +109,9 @@ fi
 # Perform ViromeQC is argument is selected (optional)
 
 if $run_viromeqc; then
-    echo "========================================="
+    echo "#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#"
     echo " Step 1: ViromeQC"
-    echo "========================================="
+    echo "#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#"
     if [ -n "$FILE" ]; then
         python3 viromeqc/viromeQC.py \
             -i "$FILE" \
@@ -145,9 +145,9 @@ fi
 
 # Perform viral profiling using sylph
 
-echo "========================================="
+echo "#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#"
 echo " Step 2: Sylph Profiling"
-echo "========================================="
+echo "#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#"
 if [ -n "$FILE" ]; then
     # Single-end
     sylph profile \
@@ -178,9 +178,9 @@ fi
 
 # Using sylph-tax for taxonomic processing
 
-echo "========================================="
+echo "#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#"
 echo " Step 3: Sylph-tax Profiling"
-echo "========================================="
+echo "#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#"
 sylph-tax taxprof \
     "$OUTPUT"/temporary/*_sylph.tsv \
     -t "$TAXONOMY_FILE"
@@ -196,17 +196,17 @@ sylph-tax merge \
 
 # Step 4: Parsing the taxonomic table for sample x vOTU table construction
 
-echo "========================================="
+echo "#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#"
 echo " Step 4: Parsing Taxonomy Table"
-echo "========================================="
-python3 parse_taxonomy_v3.py \
+echo "#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#"
+python3 parse_taxonomy.py \
     -i "$OUTPUT/merged_abundance_${SITE_DB}_virome.tsv" \
     -o "$OUTPUT/output_abund_${SITE_DB}_inviria.tsv" \
     $NO_FILTER
 
 
-echo "========================================="
+echo "#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#"
 echo " Inviria finished successfully."
 echo " Results in        : $OUTPUT"
 echo " Final table       : $OUTPUT/output_abund_${SITE_DB}_inviria.tsv"
-echo "========================================="
+echo "#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#"
