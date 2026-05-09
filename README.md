@@ -31,7 +31,6 @@ For the IHGVD, taxonomic annotation and host prediction were performed against t
 
 
 <br/><br/>
-<br/><br/>
 
 ### Installing Inviria
 
@@ -54,7 +53,7 @@ d) Download the reference database
 
 	curl https://zenodo.org/records/14937019/files/votus_full_100.syldb\?download\=1 --output votus_full_100.syldb
 
-
+<br/><br/>
 
 ### Usage
 
@@ -69,8 +68,9 @@ To profile the virome of single_ended/long-read metagenomic reads:
 	bash run_inviria.sh -f sample.fastq.gz -t 16 -o output_dir --site-db gut/oral/skin/vaginal
 
 
-Input sequencing reads can be in `.fastq` or `.fastq.gz` formart.
+Input sequencing reads can be in `.fastq` or `.fastq.gz` format.
 
+<br/><br/>
 
 #### Parameters
 
@@ -93,6 +93,8 @@ Input sequencing reads can be in `.fastq` or `.fastq.gz` formart.
 	 PIPELINE USAGE
      -h                     Show this help
 }
+
+<br/><br/>
 
 ### Expected Output
 a) `vqc` : a directory containing the viral encrichment scores for all samples.
