@@ -57,6 +57,11 @@ d) Download the viral catalogues and move them into the `databases` directory.
 	curl https://zenodo.org/records/20097004/files/VMGC_virus_vOTU_100.syldb?download=1 --output VMGC_virus_vOTU_100.syldb
 
 
+Optional if you want to use ViromeQC:
+
+Download the `viromeqc` [database files], unzip them and move them into the `scripts/viromeqc/index` directory
+
+
 ### Usage
 
 
