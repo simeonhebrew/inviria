@@ -109,6 +109,6 @@ Input sequencing reads can be in `.fastq` or `.fastq.gz` format.
 
 
 
-**Upcoming Features**
+### Upcoming Features
 - Integrating a respiratory virome database.
 
