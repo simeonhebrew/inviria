@@ -68,14 +68,13 @@ Parameters
 }
 
 ### Expected Output
-a) `ViromeQC_Viral_Enrichment_Score.png` : a bar graph plot showing the viral enrichment scores of all your samples.
+a) `vqc` : a directory containing the viral encrichment scores for all samples.
 
-b) `merged_output_(uhgv/hovd/vgmc).tsv` : a table in .tsv formart that summarizes the abundance of all mapped UHGV/HOVD/VGMC vOTUs.
+b) `output_abund_(gut/oral/skin/vaginal)_inviria.tsv.tsv` : a table in .tsv formart that summarizes the abundance of all mapped gut/oral/skin/vaginal vOTUs.
 
 
 
 
 **Upcoming Features**
-- Integrating a skin virome database.
-- Prediction of integrated prophages from sequencing reads.
-- Viral protein abundance profiling
+- Integrating a respiratory virome database.
+
