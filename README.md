@@ -2,16 +2,16 @@
 
 ## A lightweight pipeline to profile the human virome
 
-Inviria is a pipeline allows you to rapidly and efficiently profile the virome from both human enriched Virus-like Particle (VLP) and bulk metagenomics sequencing data from short-read and long-read sequencing. Inviria extends virome profiling beyond the gut, delivering site-specific characterization of the oral, skin, and vaginal viromes through one streamlined pipeline.
+Inviria is a pipeline allows you to rapidly and efficiently profile viruses (prokaryotic and eukaryotic) from both human enriched Virus-like Particle (VLP) and bulk metagenomics sequencing data from short-read and long-read sequencing. Inviria extends virome profiling beyond the gut, delivering site-specific characterization of the oral, skin, and vaginal viromes through one streamlined pipeline.
 
 This pipeline leverages:
 - [viromeQC](https://github.com/SegataLab/viromeqc.git) to estimate viral enrichment from metagenomes.
-- [sylph](https://github.com/bluenote-1577/sylph.git) for viral taxonomic profiling based on ANI containment.
+- [sylph](https://github.com/bluenote-1577/sylph.git) for viral taxonomic profiling based on kmer ANI containment.
 
-<u>### Databases description</u>
+### Databases description
 - Gut virome profiling:
   
-We built an aggregated catalogue named the Inviria Human Gut Virome Database (IHGVD) which is a collection of 196,479 vOTUs that were preprocessed and clustered from the comprehenstive Unified Human Gut Virome [UHGV](https://github.com/snayfach/UHGV.git) , the [Awi-Gen2](https://www.nature.com/articles/s41586-024-08485-8) Microbiome study that characterized 1,801 African metagenomes and the Chinese Gut Virome Catalogue [(cnGVC)](https://link.springer.com/article/10.1186/s13073-025-01460-6) constructed from 11,286 bulk and viral-enriched metagenomes. 
+We built an aggregated catalogue named the Inviria Human Gut Virome Database (IHGVD) which is a collection of 196,479 vOTUs that were preprocessed and clustered from the viral genomes in the comprehenstive Unified Human Gut Virome [UHGV](https://github.com/snayfach/UHGV.git) by [Nayfach et al.2025](https://www.biorxiv.org/content/10.1101/2025.11.01.686033v1), the AWI-Gen2 Microbiome Project that characterized 1,801 African metagenomes and reported by [Manghini et al. 2025](https://www.nature.com/articles/s41586-024-08485-8)  and the Chinese Gut Virome Catalogue [(cnGVC)] constructed from 11,286 bulk and viral-enriched metagenomes by [Yan et.al 2025](https://link.springer.com/article/10.1186/s13073-025-01460-6)
 
 - Oral virome profiling:
   
@@ -26,7 +26,7 @@ We integrated the Skin Virome Database published by [Li et al.(2025)](https://jo
 Vaginal virome profiling is performed against 4,263 vOTUs from the Human Vaginal Microbiome Genome Collection from [Huang et al.(2024)](https://www.nature.com/articles/s41564-024-01751-5) that was catalogued from 4,472 publicly available vaginal metagenomic samples.
 
 #### Database annotation
-For the IHGVD, taxonomic annotation and host prediction were performed against the [UHGV classifier](https://github.com/snayfach/UHGV-classifier) which is sensitive for viral genomes from the human gut. Taxonomic annotation for HOVD, SVD and VMGC vOTUs was performed using geNomad and host prediction using iPHOP (June 2025 database version). Viral lifestyle for all vOTUs was predicted using PHATYP.
+For the IHGVD, taxonomic annotation and host prediction were performed against the [UHGV classifier](https://github.com/snayfach/UHGV-classifier) which is sensitive for viral genomes from the human gut. Taxonomic annotation for HOVD, SVD and VMGC vOTUs was performed using [geNomad] and host prediction using iPHOP (June 2025 database version). Viral lifestyle for all vOTUs was predicted using PHATYP.
 
 
 
@@ -75,8 +75,8 @@ Parameters
     REQUIRED ARGUMENTS    
     -R1 	    Forward read in fastq or fastq.gz format
     -R2 	    Reserve read in fastq or fastq.gz format
-	-f  	    Single-end sequencing read file/long-read sequencing read file eg. nanopore
-	--site-db	Body site database: gut (default), oral, skin, or vaginal"
+	-f  	    Single-end sequencing read file/long-read sequencing read file eg. ONT, PacBio
+	--site-db	Body site database: gut (default), oral, skin, or vaginal
 	-t          threads
 	-o          output_dir
 		  
@@ -85,7 +85,7 @@ Parameters
      --no-filter            Write all taxonomy rows, not just contig-level
      --min-number-kmers     Minimum number of k-mers (default: 20)
      --min-count-correct    Minimum correct k-mer count (default: 1)
-     --min-spacing          Minimum k-mer spacing (default: 10)"
+     --min-spacing          Minimum k-mer spacing (default: 10)
 
 	 PIPELINE USAGE
      -h                     Show this help
