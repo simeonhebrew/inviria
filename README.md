@@ -33,17 +33,13 @@ d) Download the reference database
 
 To run the pipeline, use the following commands while still in the repository directory
 
-To profile the human gut virome:
+To profile the virome of paired-end short-read metagenomic reads:
 
-	./inviria_gut_profile.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>
+	bash run_inviria.sh -R1 sample_R1.fastq.gz -R2 sample_R2.fastq.gz -t 16 -o output_dir --site-db gut/oral/skin/vaginal
 
-To profile the human oral virome:
+To profile the virome of single_ended/long-read metagenomic reads:
 
-	./inviria_oral_profile.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>
-
-To profile the human vaginal virome:
-
-	./inviria_vaginal_profile.sh -R1 <forward read> -R2 <reverse read> -t <threads> -o <output_directory>
+	bash run_inviria.sh -f sample.fastq.gz -t 16 -o output_dir --site-db gut/oral/skin/vaginal
 
 
 Input sequencing reads can be in `.fastq` or `.fastq.gz` formart.
@@ -51,15 +47,25 @@ Input sequencing reads can be in `.fastq` or `.fastq.gz` formart.
 
 Parameters
 
-	REQUIRED ARGUMENTS
-	  -R1, --Read1        Forward read in fastq or fastq.gz format
-	  -R2, --Read2        Reverse read in fastq or fastq.gz format
-	  -t, --threads       Specify number of threads for parallel processing
-	OPTIONAL ARGUMENTS
-	  -o, --output        Output directory
-	  -v                  Run ViromeQC for viral enchrichment scores
-	PIPELINE USAGE
-	  -h, --help          list all arguments
+
+    REQUIRED ARGUMENTS    
+    -R1 	    Forward read in fastq or fastq.gz format
+    -R2 	    Reserve read in fastq or fastq.gz format
+	-f  	    Single-end sequencing read file/long-read sequencing read file eg. nanopore
+	--site-db	Body site database: gut (default), oral, skin, or vaginal"
+	-t          threads
+	-o          output_dir
+		  
+    OPTIONAL ARGUMENTS
+     -v  		            Run ViromeQC for viral enrichment analysis
+     --no-filter            Write all taxonomy rows, not just contig-level
+     --min-number-kmers     Minimum number of k-mers (default: 20)
+     --min-count-correct    Minimum correct k-mer count (default: 1)
+     --min-spacing          Minimum k-mer spacing (default: 10)"
+
+	 PIPELINE USAGE
+     -h                     Show this help
+}
 
 ### Expected Output
 a) `ViromeQC_Viral_Enrichment_Score.png` : a bar graph plot showing the viral enrichment scores of all your samples.
