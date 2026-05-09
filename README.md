@@ -2,7 +2,7 @@
 
 ## A lightweight pipeline to profile the human virome
 
-Inviria is a pipeline allows you to rapidly and efficienty quantify and profile the virome from both human enriched Virus-like Particle (VLP) and bulk metagenomics sequencing data from short-read and long-read sequencing. Inviria expands virome-profiling to all key body sites including gut, oral, skin and vaginal virome profiling.
+Inviria is a pipeline allows you to rapidly and efficiently profile the virome from both human enriched Virus-like Particle (VLP) and bulk metagenomics sequencing data from short-read and long-read sequencing. Inviria extends virome profiling beyond the gut, delivering site-specific characterization of the oral, skin, and vaginal viromes through one streamlined pipeline.
 
 This pipeline leverages:
 - [viromeQC](https://github.com/SegataLab/viromeqc.git) to estimate viral enrichment from metagenomes.
@@ -25,9 +25,8 @@ We integrated the Skin Virome Database published by [Li et al.(2025)](https://jo
   
 Vaginal virome profiling is performed against 4,263 vOTUs from the Human Vaginal Microbiome Genome Collection from [Huang et al.(2024)](https://www.nature.com/articles/s41564-024-01751-5) that was catalogued from 4,472 publicly available vaginal metagenomic samples.
 
-For the IHGVD, taxonomic annotation and host prediction were performed against the UHGV classifier which is sensitive for viral genomes from the human gut.
-Taxonomic annoatation for HOVD, SVD and VMGC vOTUs was performed using geNomad and host prediction using iPHOP (June 2025 database version.
-Viral lifestyle for all vOTUs was predicted using PHATYP.
+#### Database annotation
+For the IHGVD, taxonomic annotation and host prediction were performed against the [UHGV classifier](https://github.com/snayfach/UHGV-classifier) which is sensitive for viral genomes from the human gut. Taxonomic annotation for HOVD, SVD and VMGC vOTUs was performed using geNomad and host prediction using iPHOP (June 2025 database version). Viral lifestyle for all vOTUs was predicted using PHATYP.
 
 
 
