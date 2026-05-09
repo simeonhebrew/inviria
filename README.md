@@ -77,29 +77,29 @@ Input sequencing reads can be in `.fastq` or `.fastq.gz` format.
 
 
     REQUIRED ARGUMENTS    
-    -R1 	    Forward read in fastq or fastq.gz format
-    -R2 	    Reserve read in fastq or fastq.gz format
-	-f  	    Single-end sequencing read file/long-read sequencing read file eg. ONT, PacBio
-	--site-db	Body site database: gut (default), oral, skin, or vaginal
+    -R1 	    forward read in fastq or fastq.gz format
+    -R2 	    reserve read in fastq or fastq.gz format
+	-f  	    single-end sequencing read file/long-read sequencing read file eg. ONT, PacBio
+	--site-db	body site database: gut (default), oral, skin, or vaginal
 	-t          threads
 	-o          output_dir
 		  
     OPTIONAL ARGUMENTS
-     -v  		            Run ViromeQC for viral enrichment analysis
-     --no-filter            Write all taxonomy rows, not just contig-level
-     --min-number-kmers     Minimum number of k-mers (default: 20)
-     --min-count-correct    Minimum correct k-mer count (default: 1)
-     --min-spacing          Minimum k-mer spacing (default: 10)
+     -v  		            run ViromeQC for viral enrichment estimation from metagenomc reads
+     --no-filter            write all taxonomy rows, not just contig-level
+     --min-number-kmers     minimum number of k-mers (default: 20)
+     --min-count-correct    minimum correct k-mer count (default: 1)
+     --min-spacing          minimum k-mer spacing (default: 10)
 
 	 PIPELINE USAGE
-     -h                     Show this help
+     -h                     show this help
 
 
 
 ### Expected Output
-a) `vqc` : a directory containing the viral encrichment scores for all samples.
+- `vqc` : a directory containing the viral encrichment scores for all samples.
 
-b) `output_abund_(gut/oral/skin/vaginal)_inviria.tsv.tsv` : a table in .tsv formart that summarizes the abundance of all mapped gut/oral/skin/vaginal vOTUs.
+- `output_abund_(gut/oral/skin/vaginal)_inviria.tsv.tsv` : a table in .tsv formart that summarizes the abundance of all mapped gut/oral/skin/vaginal vOTUs.
 
 
 
