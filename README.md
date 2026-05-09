@@ -11,7 +11,7 @@ This pipeline leverages:
 ### Databases description
 - Gut virome profiling:
   
-We built an aggregated catalogue named the Inviria Human Gut Virome Database (IHGVD) which is a collection of 196,479 vOTUs that were preprocessed and clustered from the viral genomes in the comprehenstive Unified Human Gut Virome [UHGV](https://github.com/snayfach/UHGV.git) by [Nayfach et al.2025](https://www.biorxiv.org/content/10.1101/2025.11.01.686033v1), the AWI-Gen2 Microbiome Project that characterized 1,801 African metagenomes and reported by [Manghini et al. 2025](https://www.nature.com/articles/s41586-024-08485-8)  and the Chinese Gut Virome Catalogue [(cnGVC)] constructed from 11,286 bulk and viral-enriched metagenomes by [Yan et.al 2025](https://link.springer.com/article/10.1186/s13073-025-01460-6)
+We built an aggregated catalogue named the Inviria Human Gut Virome Database (IHGVD) which is a collection of 196,479 vOTUs that were preprocessed and clustered from the viral genomes in the comprehenstive Unified Human Gut Virome (UHGV) by [Nayfach et al. 2025](https://www.biorxiv.org/content/10.1101/2025.11.01.686033v1), the AWI-Gen2 Microbiome Project that characterized 1,801 African metagenomes and reported by [Manghini et al. 2025](https://www.nature.com/articles/s41586-024-08485-8) and the Chinese Gut Virome Catalogue (cnGVC) constructed from 11,286 bulk and viral-enriched metagenomes by [Yan et.al 2025](https://link.springer.com/article/10.1186/s13073-025-01460-6) .
 
 - Oral virome profiling:
   
@@ -19,20 +19,23 @@ The Human Oral Virome Database, published by [Xu et al.(2025)](https://www.scien
 
 - Skin virome profiling:
   
-We integrated the Skin Virome Database published by [Li et al.(2025)](https://journals.asm.org/doi/10.1128/spectrum.01178-25) which consists of 2,873 vOTUs constructed from 2,760 human skin metagenome samples .
+We integrated the Skin Virome Database published by [Li et al.(2025)](https://journals.asm.org/doi/10.1128/spectrum.01178-25) which consists of 2,873 vOTUs constructed from 2,760 human skin metagenome samples.
 
 - Vaginal virome profiling:
   
 Vaginal virome profiling is performed against 4,263 vOTUs from the Human Vaginal Microbiome Genome Collection from [Huang et al.(2024)](https://www.nature.com/articles/s41564-024-01751-5) that was catalogued from 4,472 publicly available vaginal metagenomic samples.
 
+
 #### Database annotation
-For the IHGVD, taxonomic annotation and host prediction were performed against the [UHGV classifier](https://github.com/snayfach/UHGV-classifier) which is sensitive for viral genomes from the human gut. Taxonomic annotation for HOVD, SVD and VMGC vOTUs was performed using [geNomad] and host prediction using iPHOP (June 2025 database version). Viral lifestyle for all vOTUs was predicted using PHATYP.
+For the IHGVD, taxonomic annotation and host prediction were performed against the [UHGV classifier](https://github.com/snayfach/UHGV-classifier) which is sensitive for viral genomes from the human gut. Taxonomic annotation for HOVD, SVD and VMGC vOTUs was performed using [geNomad](https://github.com/apcamargo/genomad) (Msl19 ICTV taxonomy release) and microbial host prediction using [iPHOP](https://bitbucket.org/srouxjgi/iphop/src/main/) (June 2025 database version). Viral lifestyle for all vOTUs was predicted using [PHATYP](https://github.com/KennthShang/PhaTYP).
 
 
+<br/><br/>
+<br/><br/>
 
 ### Installing Inviria
 
-a) To install inviria, first clone the git repository to your preferred directory and move into the repository
+a) To install inviria, first clone the git repository to your preferred directory and move into the repository.
 
 	git clone https://github.com/simeonhebrew/inviria.git
 	cd inviria
@@ -69,7 +72,7 @@ To profile the virome of single_ended/long-read metagenomic reads:
 Input sequencing reads can be in `.fastq` or `.fastq.gz` formart.
 
 
-Parameters
+#### Parameters
 
 
     REQUIRED ARGUMENTS    
