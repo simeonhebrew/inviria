@@ -59,15 +59,14 @@ d) Download the viral catalogues and move them into the `databases` directory.
 
 ### Usage
 
-To run the pipeline, use the following commands while still in the repository directory
 
-To profile the virome of paired-end short-read metagenomic reads:
+To profile paired-end short-read metagenomic reads:
 
-	bash run_inviria.sh -R1 sample_R1.fastq.gz -R2 sample_R2.fastq.gz -t 16 -o output_dir --site-db gut/oral/skin/vaginal
+	bash inviria_run.sh -R1 sample_R1.fastq.gz -R2 sample_R2.fastq.gz -t 16 -o output_dir --site-db gut/oral/skin/vaginal
 
-To profile the virome of single_ended/long-read metagenomic reads:
+To profile single-end/long-read metagenomic reads:
 
-	bash run_inviria.sh -f sample.fastq.gz -t 16 -o output_dir --site-db gut/oral/skin/vaginal
+	bash inviria_run.sh -f sample.fastq.gz -t 16 -o output_dir --site-db gut/oral/skin/vaginal
 
 
 Input sequencing reads can be in `.fastq` or `.fastq.gz` format.
@@ -94,9 +93,8 @@ Input sequencing reads can be in `.fastq` or `.fastq.gz` format.
 
 	 PIPELINE USAGE
      -h                     Show this help
-}
 
-<br/><br/>
+
 
 ### Expected Output
 a) `vqc` : a directory containing the viral encrichment scores for all samples.
