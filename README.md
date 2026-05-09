@@ -8,7 +8,7 @@ This pipeline leverages:
 - [viromeQC](https://github.com/SegataLab/viromeqc.git) to estimate viral enrichment from metagenomes.
 - [sylph](https://github.com/bluenote-1577/sylph.git) for viral taxonomic profiling based on ANI containment.
 
-### Databases description
+<u>### Databases description</u>
 - Gut virome profiling:
   
 We built an aggregated catalogue named the Inviria Human Gut Virome Database (IHGVD) which is a collection of 196,479 vOTUs that were preprocessed and clustered from the comprehenstive Unified Human Gut Virome [UHGV](https://github.com/snayfach/UHGV.git) , the [Awi-Gen2](https://www.nature.com/articles/s41586-024-08485-8) Microbiome study that characterized 1,801 African metagenomes and the Chinese Gut Virome Catalogue [(cnGVC)](https://link.springer.com/article/10.1186/s13073-025-01460-6) constructed from 11,286 bulk and viral-enriched metagenomes. 
