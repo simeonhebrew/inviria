@@ -2,8 +2,11 @@
 
 ## A lightweight pipeline to profile the human virome
 
-Inviria is a pipeline allows you to rapidly and efficienty quantify and profile the human virome from both enriched Virus-like Particle (VLP) and bulk metagenomics sequencing data.
-It leverages [viromeQC](https://github.com/SegataLab/viromeqc.git) to estimate viral enrichment and [sylph](https://github.com/bluenote-1577/sylph.git) for viral and host taxonomic profiling against the Unified Human Gut Virome [UHGV](https://github.com/snayfach/UHGV.git) for human gut virome profiling, the Human Oral Virome Database [HOVD](https://github.com/willmaxu/Human-oral-virome-database?tab=readme-ov-file) for human oral virome profiling and the Human Vaginal Microbiome Genome Collection [VMGC](https://github.com/RChGO/VMGC) for human vaginal virome profiling.
+Inviria is a pipeline allows you to rapidly and efficienty quantify and profile the human virome from both enriched Virus-like Particle (VLP) and bulk metagenomics sequencing data from short-read and long-read sequencing.
+
+This pipeline leverages:
+- [viromeQC](https://github.com/SegataLab/viromeqc.git) to estimate viral enrichment from metagenomes.
+- [sylph](https://github.com/bluenote-1577/sylph.git) for viral and host taxonomic profiling against the Unified Human Gut Virome [UHGV](https://github.com/snayfach/UHGV.git) for human gut virome profiling, the Human Oral Virome Database [HOVD](https://github.com/willmaxu/Human-oral-virome-database?tab=readme-ov-file) for human oral virome profiling and the Human Vaginal Microbiome Genome Collection [VMGC](https://github.com/RChGO/VMGC) for human vaginal virome profiling.
 
 
 ### Installation
