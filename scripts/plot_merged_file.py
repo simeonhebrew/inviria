@@ -1,9 +1,10 @@
 #Plotting the summarized output file from viromeQC
+#Author: Simeon Hebrew Nthuku
 
 import pandas as pd
 import matplotlib.pyplot as plt
 
-file_path = 'OUTPUT/merged_output_file.txt' 
+file_path = 'merged_output_file.txt' 
 data = pd.read_csv(file_path, sep='\t', usecols=[0, 6], header=0)
 
 
@@ -21,6 +22,6 @@ plt.xticks(rotation=90, ha='right')
 plt.tight_layout() 
 
 
-plt.savefig('ViromeQC_Viral_Enrichment_Score.png', format='png', dpi=300)
+plt.savefig('ViromeQC_Viral_Enrichment_Score.png', format='png', dpi=600)
 
 plt.show()
