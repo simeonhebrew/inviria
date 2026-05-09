@@ -59,7 +59,7 @@ d) Download the viral catalogues and move them into the `databases` directory.
 
 Optional if you want to use ViromeQC:
 
-Download the `viromeqc` [database files], unzip them and move them into the `scripts/viromeqc/index` directory
+Download the `viromeqc` [database files](https://zenodo.org/records/4020594#.X1jxgGMzZDM), unzip them and move them into the `scripts/viromeqc/index` directory
 
 
 ### Usage
