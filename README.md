@@ -8,7 +8,7 @@ This pipeline leverages:
 - [viromeQC](https://github.com/SegataLab/viromeqc.git) to estimate viral enrichment from metagenomes.
 - [sylph](https://github.com/bluenote-1577/sylph.git) for viral taxonomic profiling based on kmer ANI containment.
 
-### Databases description
+## Databases description
 
 - Gut virome profiling:
   
@@ -33,7 +33,7 @@ For the IHGVD, taxonomic annotation and host prediction were performed against t
 
 
 
-### Installing Inviria
+## Installing Inviria
 
 a) To install inviria, first clone the git repository to your preferred directory and move into the repository.
 
@@ -63,7 +63,7 @@ Optional if you want to use ViromeQC:
 Download the `viromeqc` [database files](https://zenodo.org/records/4020594#.X1jxgGMzZDM), unzip them and move them into the `scripts/viromeqc/index` directory
 
 
-### Usage
+## Usage
 
 
 To profile paired-end short-read metagenomic reads:
@@ -102,7 +102,7 @@ Input sequencing reads can be in `.fastq` or `.fastq.gz` format.
 
 
 
-### Expected Output
+## Expected Output
 - `vqc` : a directory containing the viral encrichment scores for all samples.
 
 - `output_abund_(gut/oral/skin/vaginal)_inviria.tsv.tsv` : a table in .tsv formart that summarizes the abundance of all mapped gut/oral/skin/vaginal vOTUs.
@@ -110,6 +110,6 @@ Input sequencing reads can be in `.fastq` or `.fastq.gz` format.
 
 
 
-### Upcoming Features
+## Upcoming Features
 - Integrating a respiratory virome database.
 
