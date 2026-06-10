@@ -9,6 +9,7 @@ This pipeline leverages:
 - [sylph](https://github.com/bluenote-1577/sylph.git) for viral taxonomic profiling based on kmer ANI containment.
 
 ### Databases description
+
 - Gut virome profiling:
   
 We built an aggregated catalogue named the Inviria Human Gut Virome Database (IHGVD) which is a collection of 196,479 vOTUs that were preprocessed and clustered from the viral genomes in the comprehenstive Unified Human Gut Virome (UHGV) by [Nayfach et al. 2025](https://www.biorxiv.org/content/10.1101/2025.11.01.686033v1), the AWI-Gen2 Microbiome Project that characterized 1,801 African metagenomes and reported by [Manghini et al. 2025](https://www.nature.com/articles/s41586-024-08485-8) and the Chinese Gut Virome Catalogue (cnGVC) constructed from 11,286 bulk and viral-enriched metagenomes by [Yan et.al 2025](https://link.springer.com/article/10.1186/s13073-025-01460-6) .
