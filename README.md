@@ -11,7 +11,7 @@ This pipeline leverages:
 
 - Gut virome profiling:
   
-We built an aggregated catalogue named the Inviria Human Gut Virome Database (IHGVD) which is a collection of 196,479 vOTUs that were preprocessed and clustered from the viral genomes in the comprehenstive Unified Human Gut Virome (UHGV) by [Nayfach et al. 2025](https://www.biorxiv.org/content/10.1101/2025.11.01.686033v1), the AWI-Gen2 Microbiome Project that characterized 1,801 African metagenomes and reported by [Manghini et al. 2025](https://www.nature.com/articles/s41586-024-08485-8) and the Chinese Gut Virome Catalogue (cnGVC) constructed from 11,286 bulk and viral-enriched metagenomes by [Yan et.al 2025](https://link.springer.com/article/10.1186/s13073-025-01460-6) .
+We built an aggregated catalogue named the Inviria Human Gut Virome Database (IHGVD) which is a collection of 196,479 vOTUs that were preprocessed and clustered from the viral genomes provided by the comprehenstive Unified Human Gut Virome (UHGV) by [Nayfach et al. 2025](https://www.biorxiv.org/content/10.1101/2025.11.01.686033v1), the AWI-Gen2 Microbiome Project that characterized 1,801 African metagenomes and reported by [Manghini et al. 2025](https://www.nature.com/articles/s41586-024-08485-8) and the Chinese Gut Virome Catalogue (cnGVC) constructed from 11,286 bulk and viral-enriched metagenomes by [Yan et.al 2025](https://link.springer.com/article/10.1186/s13073-025-01460-6) .
 
 - Oral virome profiling:
   
@@ -41,7 +41,7 @@ a) To install inviria, first clone the git repository to your preferred director
 
 b) Using the configuration file provided, create a new [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html) environment:
 
-	conda env create -n inviria --file inviria.yml
+	conda env create -n inviria --file inviria_env.yml
 
 
 c) Activate the conda environment
@@ -67,7 +67,7 @@ Download the `viromeqc` [database files](https://zenodo.org/records/4020594#.X1j
 
 To profile paired-end short-read metagenomic reads:
 
-	bash inviria_run.sh -R1 sample_R1.fastq.gz -R2 sample_R2.fastq.gz -t 16 -o output_dir --site-db gut/oral/skin/vaginal
+	bash inviria_reference.sh -R1 sample_R1.fastq.gz -R2 sample_R2.fastq.gz -t 16 -o output_dir --site-db gut/oral/skin/vaginal
 
 To profile single-end/long-read metagenomic reads:
 
