@@ -1,8 +1,7 @@
-# Inviria
+# Inviria : Body-site aware human virome profiling
 
-## A lightweight pipeline to profile the human virome
-
-Inviria is a pipeline allows you to rapidly and efficiently profile viruses (prokaryotic and eukaryotic) from both human enriched Virus-like Particle (VLP) and bulk metagenomics sequencing data from short-read and long-read sequencing. Inviria extends virome profiling beyond the gut, delivering site-specific characterization of the oral, skin, and vaginal viromes through one streamlined pipeline.
+Inviria allows  users to rapidly and efficiently profile viruses from both human enriched Virus-like Particle (VLP) and bulk metagenomics sequencing data from short-read and long-read 
+sequencing. Inviria extends virome profiling beyond the gut, delivering site-specific characterization of the oral, skin, and vaginal viromes through one streamlined pipeline.
 
 This pipeline leverages:
 - [viromeQC](https://github.com/SegataLab/viromeqc.git) to estimate viral enrichment from metagenomes.
