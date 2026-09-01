@@ -64,17 +64,36 @@ Download the `viromeqc` [database files](https://zenodo.org/records/4020594#.X1j
 
 ## Usage
 
+Inviria can be run using either `Inviria Reference` or `Inviria Combined` mode using files that are either in `fastq` or `fastq.gz`:
 
-To profile paired-end short-read metagenomic reads:
+### a) To profile using Inviria Reference:
+
+For paired-end sequencing reads:
 
 	bash inviria_reference.sh -R1 sample_R1.fastq.gz -R2 sample_R2.fastq.gz -t 16 -o output_dir --site-db gut/oral/skin/vaginal
 
-To profile single-end/long-read metagenomic reads:
+For single-end sequencing reads:
+	
+	bash inviria_reference.sh -file sample.fastq.gz -t 16 -o output_dir --site-db gut/oral/skin/vaginal
 
-	bash inviria_run.sh -f sample.fastq.gz -t 16 -o output_dir --site-db gut/oral/skin/vaginal
 
 
-Input sequencing reads can be in `.fastq` or `.fastq.gz` format.
+### b) To profile using Inviria Combined
+
+Profiling using Inviria Combined first involves clustering your sample-level viral contigs with a selected human viral site catalogue provided by Inviria
+using `build-db` as follows:
+
+	bash inviria_combined.sh build-db --contigs putative_confident_viruses_pad_vlp.fasta --site-db gut/oral/skin/vaginal -o output_dir -t threads
+
+Then read profiling is done as follows:
+
+For paired-end sequencing reads:
+
+	bash inviria_combined.sh profile -R1 sample_R1.fastq.gz -R2 sample_R2.fastq.gz -t 4 -o output_dir --sylph-db output_dir/db/custom_database.syldb
+
+For single-end sequencing reads:
+
+	bash inviria_combined.sh profile -file sample.fastq.gz -t 4 -o output_dir --sylph-db output_dir/db/custom_database.syldb
 
 
 
@@ -101,11 +120,14 @@ Input sequencing reads can be in `.fastq` or `.fastq.gz` format.
 
 
 
-## Expected Output
+## Output files
 - `vqc` : a directory containing the viral encrichment scores for all samples.
 
-- `output_abund_(gut/oral/skin/vaginal)_inviria.tsv.tsv` : a table in .tsv formart that summarizes the abundance of all mapped gut/oral/skin/vaginal vOTUs.
-
+- `output_abund_(gut/oral/skin/vaginal)_inviria.tsv.tsv` : a table in .tsv formart that summarizes the abundance of all mapped gut/oral/skin/vaginal vOTUs. This table reports the following for each vOTU:
+	- Viral taxonomy
+	- Predicted host taxonomy
+	- Predicted viral lifestyle
+	- vOTU relative abundance
 
 
 
